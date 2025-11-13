@@ -1,4 +1,4 @@
-# Auto Evidence Screenshot Tool
+# Playwright Automation Screenshot Tool
 
 This project is an **example implementation** of an automation tool built with Playwright. It was designed for a specific internal use case: navigating through a multi-step form by repeatedly clicking **Next**, while switching between **languages (English/Arabic)** and **themes (Light/Dark)** at each step.
 

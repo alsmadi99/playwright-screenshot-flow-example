@@ -1,5 +1,5 @@
 {
-  "name": "auto-evidence",
+  "name": "playwright-screenshot-flow-example",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,10 +8,24 @@
     "start": "node dist/index.js",
     "package": "pkg dist/index.js --targets node18-win-x64 --output screenshot.exe"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "automation",
+    "evidence",
+    "screenshot",
+    "playwright",
+    "nodejs"
+  ],
+  "author": "Mohammad Alsmadi <alsmadi.work@gmail.com>",
   "license": "ISC",
-  "description": "",
+  "description": "A Node.js tool for automated evidence collection using screenshots and Playwright.",
+  "homepage": "https://github.com/alsmadi99/playwright-screenshot-flow-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alsmadi99/playwright-screenshot-flow-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alsmadi99/playwright-screenshot-flow-example/issues"
+  },
   "pkg": {
     "assets": [
       "ms-playwright/**/*"
