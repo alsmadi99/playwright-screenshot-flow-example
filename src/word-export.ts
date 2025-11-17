@@ -96,25 +96,20 @@ export const generateWordFiles = async (): Promise<void> => {
             children: themeScreenshots.flatMap((filePath, idx) => {
               const imageBuffer = fs.readFileSync(filePath);
 
-              let width: number;
-              let height: number;
+              // 💻 Scale down desktop screenshots if too wide
+              const dimensions = sizeOf(imageBuffer);
+              const maxWidth = 600;
+              const scale =
+                dimensions.width && dimensions.width > maxWidth
+                  ? maxWidth / dimensions.width
+                  : 1;
 
-              if (type === "ios" || type === "android") {
-                // 📱 Static size for mobile screenshots
-                width = 400;
-                height = 900;
-              } else {
-                // 💻 Scale down desktop screenshots if too wide
-                const dimensions = sizeOf(imageBuffer);
-                const maxWidth = 600;
-                const scale =
-                  dimensions.width && dimensions.width > maxWidth
-                    ? maxWidth / dimensions.width
-                    : 1;
-
-                width = dimensions.width ? dimensions.width * scale : maxWidth;
-                height = dimensions.height ? dimensions.height * scale : 400;
-              }
+              const width = dimensions.width
+                ? dimensions.width * scale
+                : maxWidth;
+              const height = dimensions.height
+                ? dimensions.height * scale
+                : 400;
 
               return [
                 new Paragraph({

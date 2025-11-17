@@ -5,14 +5,8 @@ import { Page } from "playwright";
 import { SCREENSHOT_DIR } from "./constants";
 import { zoomOut } from "./utils/page-utils";
 
-export const takeDesktopScreenshot = async (filePath: string) => {
+export const takeWindowScreenshot = async (filePath: string) => {
   await screenshot({ filename: filePath });
-  console.log(`✅ Desktop Captured: ${filePath}`);
-};
-
-export const takeMobileScreenshot = async (page: Page, filePath: string) => {
-  await page.screenshot({ path: filePath });
-  console.log(`✅ Mobile Captured: ${filePath}`);
 };
 
 export const captureBreadcrumbScreenshots = async (page: Page) => {
@@ -52,7 +46,7 @@ export const captureBreadcrumbScreenshots = async (page: Page) => {
 
       await zoomOut(page);
       await page.keyboard.press("F11");
-      await takeDesktopScreenshot(fileName);
+      await takeWindowScreenshot(fileName);
 
       console.log(`✅ [desktop] Breadcrumb screenshot: ${fileName}`);
     }
